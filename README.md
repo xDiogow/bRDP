@@ -28,7 +28,6 @@ This tool should only be used:
 
 ## **Requirements**  
 - Python 3.9 or higher  
-- Required modules: (Add any modules your tool depends on)
 
 ---
 
