@@ -1,6 +1,5 @@
 import socket
 import logging
-from ipaddress import ip_address
 from random import randint
 
 generated_ips = set()
@@ -16,7 +15,10 @@ def check_rdp(host, port=3389) -> bool:
     Returns:
         bool: True if RDP is available, False otherwise.
     """
-    logging.info(f"Attempting to connect to {host}:{port}")
+
+    # TODO: Attempt to connect with empty credentials to find vulnerable clients.
+
+    logging.info(f"Attempting to handshake to {host}:{port}")
     try:
         with socket.create_connection((host, port), timeout=2):
             logging.info(f"A RDP connection has been found on {host}:{port}")
