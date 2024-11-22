@@ -1,6 +1,9 @@
 import socket
 import logging
+from ipaddress import ip_address
 from random import randint
+
+generated_ips = set()
 
 def check_rdp(host, port=3389) -> bool:
     """
@@ -29,9 +32,9 @@ def generate_random_ip():
     """Generate a single random public IP."""
     while True:
         ip = ".".join(str(randint(1, 254)) for _ in range(4))  # Avoid 0 and 255
-        if not is_private(ip):
+        if not is_private(ip) and ip not in generated_ips:
+            generated_ips.add(ip)
             return ip
-
 
 def is_private(ip):
     """Check if an IP address is in a private range."""

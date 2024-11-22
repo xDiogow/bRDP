@@ -12,7 +12,7 @@ logging.basicConfig(
 
 def main():
     logging.info("Scanning for RDP services...")
-    cycle_limit = 10  # Number of cycles to run = Limit
+    cycle_limit = 1000  # Number of cycles to run = Limit
     max_threads = 5  # Number of concurrent threads
 
     with ThreadPoolExecutor(max_threads) as executor:
