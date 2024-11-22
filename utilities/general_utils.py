@@ -17,7 +17,7 @@ def check_rdp(host, port=3389) -> bool:
 
     logging.info(f"Attempting to handshake to {host}:{port}")
     try:
-
+        # Administrator is the default username for Windows RDP
         c = Client(host, username="Administrator", password="", port=port)
         c.connect(timeout=2)
         c.cleanup()
