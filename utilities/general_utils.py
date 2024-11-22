@@ -1,7 +1,6 @@
-import socket
 import logging
+from pypsexec.client import Client
 from random import randint
-
 generated_ips = set()
 
 def check_rdp(host, port=3389) -> bool:
@@ -16,17 +15,16 @@ def check_rdp(host, port=3389) -> bool:
         bool: True if RDP is available, False otherwise.
     """
 
-    # TODO: Attempt to connect with empty credentials to find vulnerable clients.
-
     logging.info(f"Attempting to handshake to {host}:{port}")
     try:
-        with socket.create_connection((host, port), timeout=2):
-            logging.info(f"A RDP connection has been found on {host}:{port}")
-            return True
-    except socket.timeout:
-        logging.warning(f"Connection attempt to {host}:{port} timed out.")
-    except socket.error:
-        logging.error(f"RDP is not enabled on {host}:{port}")
+
+        c = Client(host, username="Administrator", password="", port=port)
+        c.connect(timeout=2)
+        c.cleanup()
+        c.disconnect()
+        return True
+    except:
+        logging.error(f"Failed to connect to {host}:{port}. RDP might not be enabled or the connection failed.")
     return False
 
 

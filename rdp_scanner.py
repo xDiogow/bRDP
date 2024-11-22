@@ -9,6 +9,7 @@ logging.basicConfig(
     format='[%(levelname)s] %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
+logging.getLogger("pypsexec").setLevel(logging.WARNING)
 
 def main():
     logging.info("Scanning for RDP services...")
