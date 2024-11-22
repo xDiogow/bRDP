@@ -1,5 +1,7 @@
 import logging
-from utils import check_rdp, generate_random_ip
+
+from utilities.save_utils import save_result
+from utilities.general_utils import check_rdp, generate_random_ip
 
 logging.basicConfig(
     level=logging.INFO,
@@ -15,7 +17,8 @@ def main():
         logging.info(f"Cycle {cycle + 1}/{cycle_limit}: Generating and checking an IP...")
         random_ip = generate_random_ip()
         #logging.info(f"Generated IP: {random_ip}")
-        check_rdp(random_ip)
+        if check_rdp(random_ip):
+            save_result(random_ip)
     logging.info("Finished scanning for RDP services...")
 
 if __name__ == "__main__":

@@ -2,7 +2,6 @@ import socket
 import logging
 from random import randint
 
-
 def check_rdp(host, port=3389) -> bool:
     """
     Check if an RDP connection is available on the specified host and port.
