@@ -1,8 +1,8 @@
-# **bRDP**  
+# **bRDP (BadRDP)**  
 **Disclaimer: This tool is strictly for educational purposes only.**
 
 ## **Overview**  
-The **bRDP (Bad RDP)** is an educational project designed to demonstrate the vulnerabilities of Remote Desktop Protocol (RDP) servers when left unprotected. Its purpose is to raise awareness about the importance of securing RDP servers and implementing proper protection measures. 
+The **bRDP (BadRDP)** is an educational project designed to demonstrate the vulnerabilities of Remote Desktop Protocol (RDP) servers when left unprotected. Its purpose is to raise awareness about the importance of securing RDP servers and implementing proper protection measures. 
 
 **Key Features:**
 - Scans the internet for publicly accessible RDP servers.
