@@ -16,7 +16,7 @@ def main():
         random_ip = generate_random_ip()
         #logging.info(f"Generated IP: {random_ip}")
         check_rdp(random_ip)
-    logging.info("Finished scan for RDP services...")
+    logging.info("Finished scanning for RDP services...")
 
 if __name__ == "__main__":
     main()
