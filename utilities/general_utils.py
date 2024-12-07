@@ -32,26 +32,6 @@ def generate_random_ip():
     """Generate a single random public IP."""
     while True:
         ip = ".".join(str(randint(1, 254)) for _ in range(4))  # Avoid 0 and 255
-        if not is_private(ip) and ip not in generated_ips:
+        if ip not in generated_ips:
             generated_ips.add(ip)
             return ip
-
-def is_private(ip):
-    """Check if an IP address is in a private range."""
-    first_octet = int(ip.split('.')[0])
-    second_octet = int(ip.split('.')[1])
-
-    # Private ranges
-    if first_octet == 10:  # 10.0.0.0/8
-        return True
-    if first_octet == 172 and 16 <= second_octet <= 31:  # 172.16.0.0/12
-        return True
-    if first_octet == 192 and second_octet == 168:  # 192.168.0.0/16
-        return True
-
-    # Other non-routable ranges
-    if first_octet == 127:  # Loopback
-        return True
-    if first_octet == 169 and second_octet == 254:  # Link-local
-        return True
-    return False
